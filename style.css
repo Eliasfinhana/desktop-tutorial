@@ -1,0 +1,158 @@
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-image: url(imagemkids/Imagem\ do\ WhatsApp\ de\ 2025-10-14\ à\(s\)\ 20.46.22_0e3744e0.jpg);
+    background-size: cover;
+    background-position: center 43%;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    
+    background-color: #f4f7f6;
+    color: #333;
+    background-color: #000000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.calculadora-container {
+    background-color: rgba(255, 255, 255, 0.40);
+    border-radius: 8px;
+    /* Uma sombra mais simples */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+
+    border-top: 4px solid #000000;
+}
+
+/* O título */
+h1 {
+    text-align: center;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+.grupo-input {
+    margin-bottom: 16px;
+}
+
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+
+.grupo-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Botão de calcular */
+#btnCalcular {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000;
+    /* Cor primária */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Efeito simples quando passa o mouse */
+#btnCalcular:hover {
+    background-color: #0056b3;
+}
+
+
+#resultado {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+
+#resultado p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#resultado p span {
+    font-weight: bold;
+}
+
+
+#resultado p.ganhos span {
+    color: #28a745;
+    /* verde */
+}
+
+
+#resultado p.custos-adicionais span {
+    color: #fd7e14;
+    /* laranja */
+}
+
+
+#resultado h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+
+
+
+
+    .grupo-input-linha {
+        display: flex;
+
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+
+    .grupo-input-metade {
+
+        flex: 1;
+    }
+
+
+    .grupo-input-metade label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .grupo-input-metade input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+}
