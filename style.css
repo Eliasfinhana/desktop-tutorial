@@ -1,38 +1,31 @@
 body {
-
     font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh; 
 
     background-image: url(imagemkids/Imagem\ do\ WhatsApp\ de\ 2025-10-14\ à\(s\)\ 20.46.22_0e3744e0.jpg);
-    background-size: cover;
-    background-position: center 43%;
-    background-attachment: fixed;
-    box-sizing: border-box;
+    background-size: cover; 
+    background-position: center 40%; 
+    background-attachment: fixed; 
     
-    background-color: #f4f7f6;
-    color: #333;
-    background-color: #000000;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
+    box-sizing: border-box; 
 }
 
 .calculadora-container {
-    background-color: rgba(255, 255, 255, 0.40);
+    background-color: rgba(255, 255, 255, 0.85); 
     border-radius: 8px;
-    /* Uma sombra mais simples */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 24px;
     width: 100%;
-    max-width: 400px;
-
-    border-top: 4px solid #000000;
+    max-width: 500px;
+    border-top: 4px solid #000000; 
 }
 
-/* O título */
 h1 {
     text-align: center;
     color: #000000;
@@ -40,36 +33,59 @@ h1 {
     margin-bottom: 20px;
 }
 
+fieldset {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 16px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #0b16ad;
+    padding: 0 8px;
+}
 
 .grupo-input {
     margin-bottom: 16px;
 }
 
+.grupo-input-linha {
+    display: flex;
+    gap: 16px; 
+    margin-bottom: 16px;
+}
 
-.grupo-input label {
+.grupo-input-metade {
+    flex: 1; 
+}
+
+.grupo-input label,
+.grupo-input-metade label {
     display: block;
     margin-bottom: 6px;
     font-weight: bold;
     font-size: 0.9rem;
 }
 
-
-.grupo-input input {
+input[type="number"],
+input[type="time"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #dee2e6;
+    border: 1px solid #000000;
     border-radius: 4px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
     font-size: 1rem;
 }
 
-/* Botão de calcular */
 #btnCalcular {
     width: 100%;
     padding: 12px;
-    background-color: #000000;
-    /* Cor primária */
-    color: white;
+    background-color: #0f1ee9; 
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 4px;
     font-size: 1.1rem;
@@ -77,11 +93,26 @@ h1 {
     cursor: pointer;
 }
 
-/* Efeito simples quando passa o mouse */
 #btnCalcular:hover {
-    background-color: #0056b3;
+    background-color: #000000; 
 }
 
+#btnLimpar {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000; 
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#btnLimpar:hover {
+    background-color: #c82333; 
+}
 
 #resultado {
     margin-top: 24px;
@@ -89,70 +120,61 @@ h1 {
     border-top: 1px solid #dee2e6;
 }
 
-
-#resultado p {
-    margin: 10px 0;
-    font-size: 1.1rem;
-    display: flex;
-    justify-content: space-between;
+.resultado-dia {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #ccc;
 }
 
+.resultado-dia h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
 
-#resultado p span {
+.resultado-dia p, 
+.resultado-semana p {
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.resultado-dia p span, 
+.resultado-semana p span {
     font-weight: bold;
 }
 
-
-#resultado p.ganhos span {
-    color: #28a745;
-    /* verde */
+.resultado-semana {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #007bff;
 }
 
-
-#resultado p.custos-adicionais span {
-    color: #fd7e14;
-    /* laranja */
-}
-
-
-#resultado h2 {
-    font-size: 1.3rem;
+.resultado-semana h2 {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
     font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
+    color: #007bff;
+    text-align: center;
+}
+
+.resultado-semana p.total-final {
+     font-size: 1.2rem;
+     font-weight: bold;
+}
 
 
-
-
-    .grupo-input-linha {
-        display: flex;
-
-        gap: 16px;
-        margin-bottom: 16px;
-    }
-
-
-    .grupo-input-metade {
-
-        flex: 1;
-    }
-
-
-    .grupo-input-metade label {
-        display: block;
-        margin-bottom: 6px;
-        font-weight: bold;
-        font-size: 0.9rem;
-    }
-
-    .grupo-input-metade input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #dee2e6;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 1rem;
-    }
+.span-ganhos {
+    color: #28a745; 
+}
+.span-custos {
+    color: #fd7e14; 
+}
+.span-total-dia {
+    color: #555; 
+}
+.resultado-semana p.total-final span {
+     color: #007bff;
 }

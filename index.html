@@ -1,55 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Ganhos</title>
-
+    <title>trabalho</title>
+    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
     <div class="calculadora-container">
-        <h1>trabalho amor</h1>
+        <h1>Trabalho do meu amor</h1>
 
         <form id="calculadora-form">
-
-            <div class="grupo-input-linha">
-                <div class="grupo-input-metade">
-                    <label for="horas">Horas trabalhadas</label>
-                    <input type="number" id="horas" placeholder="Ex: 1">
+            
+            <fieldset>
+                <legend>Segunda-feira</legend>
+                <div class="grupo-input-linha">
+                    <div class="grupo-input-metade">
+                        <label for="entrada-seg">Entrada</label>
+                        <input type="time" id="entrada-seg">
+                    </div>
+                    <div class="grupo-input-metade">
+                        <label for="saida-seg">Saída</label>
+                        <input type="time" id="saida-seg">
+                    </div>
                 </div>
-                <div class="grupo-input-metade">
-                    <label for="minutos">Minutos</label>
-                    <input type="number" id="minutos" placeholder="Ex: 30">
+                <div class="grupo-input">
+                    <label for="uber-seg">Uber (R$)</label>
+                    <input type="number" id="uber-seg" placeholder="0" step="0.01">
                 </div>
-            </div>
+                <div class="grupo-input">
+                    <label for="comida-seg">Comida (R$)</label>
+                    <input type="number" id="comida-seg" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="outros-seg">Outros (R$)</label>
+                    <input type="number" id="outros-seg" placeholder="0" step="0.01">
+                </div>
+            </fieldset>
 
-            <div class="grupo-input">
-                <label for="uber">Gastos com Uber (R$)</label>
-                <input type="number" id="uber" placeholder="Ex: 25.50">
-            </div>
+            <fieldset>
+                <legend>Terça-feira</legend>
+                <div class="grupo-input-linha">
+                    <div class="grupo-input-metade">
+                        <label for="entrada-ter">Entrada</label>
+                        <input type="time" id="entrada-ter">
+                    </div>
+                    <div class="grupo-input-metade">
+                        <label for="saida-ter">Saída</label>
+                        <input type="time" id="saida-ter">
+                    </div>
+                </div>
+                <div class="grupo-input">
+                    <label for="uber-ter">Uber (R$)</label>
+                    <input type="number" id="uber-ter" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="comida-ter">Comida (R$)</label>
+                    <input type="number" id="comida-ter" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="outros-ter">Outros (R$)</label>
+                    <input type="number" id="outros-ter" placeholder="0" step="0.01">
+                </div>
+            </fieldset>
 
-            <div class="grupo-input">
-                <label for="comida">Gastos com Comida (R$)</label>
-                <input type="number" id="comida" placeholder="Ex: 18.00">
-            </div>
+            <fieldset>
+                <legend>Quarta-feira</legend>
+                <div class="grupo-input-linha">
+                    <div class="grupo-input-metade">
+                        <label for="entrada-qua">Entrada</label>
+                        <input type="time" id="entrada-qua">
+                    </div>
+                    <div class="grupo-input-metade">
+                        <label for="saida-qua">Saída</label>
+                        <input type="time" id="saida-qua">
+                    </div>
+                </div>
+                <div class="grupo-input">
+                    <label for="uber-qua">Uber (R$)</label>
+                    <input type="number" id="uber-qua" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="comida-qua">Comida (R$)</label>
+                    <input type="number" id="comida-qua" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="outros-qua">Outros (R$)</label>
+                    <input type="number" id="outros-qua" placeholder="0" step="0.01">
+                </div>
+            </fieldset>
 
-            <div class="grupo-input">
-                <label for="outros">Outros Gastos (R$)</label>
-                <input type="number" id="outros" placeholder="Ex: 10.00">
-            </div>
+            <fieldset>
+                <legend>Quinta-feira</legend>
+                <div class="grupo-input-linha">
+                    <div class="grupo-input-metade">
+                        <label for="entrada-qui">Entrada</label>
+                        <input type="time" id="entrada-qui">
+                    </div>
+                    <div class="grupo-input-metade">
+                        <label for="saida-qui">Saída</label>
+                        <input type="time" id="saida-qui">
+                    </div>
+                </div>
+                <div class="grupo-input">
+                    <label for="uber-qui">Uber (R$)</label>
+                    <input type="number" id="uber-qui" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="comida-qui">Comida (R$)</label>
+                    <input type="number" id="comida-qui" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="outros-qui">Outros (R$)</label>
+                    <input type="number" id="outros-qui" placeholder="0" step="0.01">
+                </div>
+            </fieldset>
 
-            <button id="btnCalcular">Calcular Total</button>
+            <fieldset>
+                <legend>Sexta-feira</legend>
+                <div class="grupo-input-linha">
+                    <div class="grupo-input-metade">
+                        <label for="entrada-sex">Entrada</label>
+                        <input type="time" id="entrada-sex">
+                    </div>
+                    <div class="grupo-input-metade">
+                        <label for="saida-sex">Saída</label>
+                        <input type="time" id="saida-sex">
+                    </div>
+                </div>
+                <div class="grupo-input">
+                    <label for="uber-sex">Uber (R$)</label>
+                    <input type="number" id="uber-sex" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="comida-sex">Comida (R$)</label>
+                    <input type="number" id="comida-sex" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="outros-sex">Outros (R$)</label>
+                    <input type="number" id="outros-sex" placeholder="0" step="0.01">
+                </div>
+            </fieldset>
 
+            <fieldset>
+                <legend>Sábado</legend>
+                <div class="grupo-input-linha">
+                    <div class="grupo-input-metade">
+                        <label for="entrada-sab">Entrada</label>
+                        <input type="time" id="entrada-sab">
+                    </div>
+                    <div class="grupo-input-metade">
+                        <label for="saida-sab">Saída</label>
+                        <input type="time" id="saida-sab">
+                    </div>
+                </div>
+                <div class="grupo-input">
+                    <label for="uber-sab">Uber (R$)</label>
+                    <input type="number" id="uber-sab" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="comida-sab">Comida (R$)</label>
+                    <input type="number" id="comida-sab" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="outros-sab">Outros (R$)</label>
+                    <input type="number" id="outros-sab" placeholder="0" step="0.01">
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Domingo</legend>
+                <div class="grupo-input-linha">
+                    <div class="grupo-input-metade">
+                        <label for="entrada-dom">Entrada</label>
+                        <input type="time" id="entrada-dom">
+                    </div>
+                    <div class="grupo-input-metade">
+                        <label for="saida-dom">Saída</label>
+                        <input type="time" id="saida-dom">
+                    </div>
+                </div>
+                <div class="grupo-input">
+                    <label for="uber-dom">Uber (R$)</label>
+                    <input type="number" id="uber-dom" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="comida-dom">Comida (R$)</label>
+                    <input type="number" id="comida-dom" placeholder="0" step="0.01">
+                </div>
+                <div class="grupo-input">
+                    <label for="outros-dom">Outros (R$)</label>
+                    <input type="number" id="outros-dom" placeholder="0" step="0.01">
+                </div>
+            </fieldset>
+
+            <button id="btnCalcular">Calcular Total da Semana</button>
+            <button type="button" id="btnLimpar">Limpar Semana</button>
+            
         </form>
 
         <div id="resultado">
-        </div>
+            </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
