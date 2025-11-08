@@ -14,6 +14,15 @@ function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
+function formatarDuracao(totalMinutos) {
+    // totalMinutos: integer
+    const horas = Math.floor(totalMinutos / 60);
+    const minutos = totalMinutos % 60;
+    if (horas > 0 && minutos > 0) return `${horas}h ${minutos}m`;
+    if (horas > 0) return `${horas}h`;
+    return `${minutos}m`;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     
     const form = document.getElementById('calculadora-form');
@@ -37,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let grandTotalHoras = 0;
         let grandTotalCustos = 0;
         let grandTotalGeral = 0;
+        let grandTotalMinutos = 0; // acumula minutos trabalhados da semana
         let htmlResultado = "";
         
         for (const dia of dias) {
@@ -44,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const saidaStr = document.getElementById(`saida-${dia.id}`).value;
             
             let valorHoras = 0;
+            let minutosTrabalhados = 0; // minutos deste dia
             
             if (entradaStr && saidaStr) {
                 const dataEntrada = new Date(`2000-01-01T${entradaStr}`);
@@ -53,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (diffMilissegundos > 0) {
                     const totalHorasDecimais = diffMilissegundos / 3600000;
                     valorHoras = totalHorasDecimais * valorPorHora;
+                    minutosTrabalhados = Math.round(diffMilissegundos / 60000);
+                    grandTotalMinutos += minutosTrabalhados;
                 }
             }
             
@@ -71,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 htmlResultado += `
                     <div class="resultado-dia">
                         <h3>${dia.nome}</h3>
-                        <p>Valor (Horas): <span class="span-ganhos">${formatarMoeda(valorHoras)}</span></p>
+                        <p>Valor (Horas): <span class="span-ganhos">${formatarMoeda(valorHoras)} ${minutosTrabalhados > 0 ? `(<span class="duracao-dia">${formatarDuracao(minutosTrabalhados)}</span>)` : ''}</span></p>
                         <p>Custos Adicionais: <span class="span-custos">+ ${formatarMoeda(valorCustos)}</span></p>
                         <p><strong>Total do Dia:</strong> <span class="span-total-dia">${formatarMoeda(valorTotalDia)}</span></p>
                     </div>
@@ -87,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         htmlResultado += `
             <div class="resultado-semana">
                 <h2>Total da Semana</h2>
-                <p>Total Ganhos (Horas): <span class="span-ganhos">${formatarMoeda(grandTotalHoras)}</span></p>
+                <p>Total Ganhos (Horas): <span class="span-ganhos">${formatarMoeda(grandTotalHoras)} <span class="duracao-semana">(${formatarDuracao(grandTotalMinutos)})</span></span></p>
                 <p>Total Custos: <span class="span-custos">+ ${formatarMoeda(grandTotalCustos)}</span></p>
                 <p class="total-final">VALOR TOTAL: <span>${formatarMoeda(grandTotalGeral)}</span></p>
             </div>
