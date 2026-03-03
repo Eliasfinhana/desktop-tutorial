@@ -33,8 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const dados = JSON.parse(dadosSalvos);
         for (const dia of dias) {
             if (dados[dia.id]) {
-                document.getElementById(`entrada-${dia.id}`).value = dados[dia.id].entrada || '';
-                document.getElementById(`saida-${dia.id}`).value = dados[dia.id].saida || '';
+                document.getElementById(`entrada-manha-${dia.id}`).value = dados[dia.id].entradaManha || '';
+                document.getElementById(`saida-manha-${dia.id}`).value = dados[dia.id].saidaManha || '';
+                document.getElementById(`entrada-noite-${dia.id}`).value = dados[dia.id].entradaNoite || '';
+                document.getElementById(`saida-noite-${dia.id}`).value = dados[dia.id].saidaNoite || '';
                 document.getElementById(`uber-${dia.id}`).value = dados[dia.id].uber || '';
                 document.getElementById(`comida-${dia.id}`).value = dados[dia.id].comida || '';
                 document.getElementById(`outros-${dia.id}`).value = dados[dia.id].outros || '';
@@ -50,22 +52,39 @@ document.addEventListener('DOMContentLoaded', function() {
         let htmlResultado = "";
         
         for (const dia of dias) {
-            const entradaStr = document.getElementById(`entrada-${dia.id}`).value;
-            const saidaStr = document.getElementById(`saida-${dia.id}`).value;
+            const entradaManhaStr = document.getElementById(`entrada-manha-${dia.id}`).value;
+            const saidaManhaStr = document.getElementById(`saida-manha-${dia.id}`).value;
+            const entradaNoiteStr = document.getElementById(`entrada-noite-${dia.id}`).value;
+            const saidaNoiteStr = document.getElementById(`saida-noite-${dia.id}`).value;
             
             let valorHoras = 0;
             let minutosTrabalhados = 0; // minutos deste dia
             
-            if (entradaStr && saidaStr) {
-                const dataEntrada = new Date(`2000-01-01T${entradaStr}`);
-                const dataSaida = new Date(`2000-01-01T${saidaStr}`);
-                const diffMilissegundos = dataSaida - dataEntrada;
+            // Calcular manhã
+            if (entradaManhaStr && saidaManhaStr) {
+                if (entradaManhaStr >= '06:00' && saidaManhaStr <= '17:59') {
+                    const dataEntradaManha = new Date(`2000-01-01T${entradaManhaStr}`);
+                    const dataSaidaManha = new Date(`2000-01-01T${saidaManhaStr}`);
+                    const diffMilissegundosManha = dataSaidaManha - dataEntradaManha;
+                    
+                    if (diffMilissegundosManha > 0) {
+                        const totalHorasDecimaisManha = diffMilissegundosManha / 3600000;
+                        valorHoras += totalHorasDecimaisManha * valorPorHora;
+                        minutosTrabalhados += Math.round(diffMilissegundosManha / 60000);
+                    }
+                }
+            }
+            
+            // Calcular noite
+            if (entradaNoiteStr && saidaNoiteStr) {
+                const dataEntradaNoite = new Date(`2000-01-01T${entradaNoiteStr}`);
+                const dataSaidaNoite = new Date(`2000-01-01T${saidaNoiteStr}`);
+                const diffMilissegundosNoite = dataSaidaNoite - dataEntradaNoite;
                 
-                if (diffMilissegundos > 0) {
-                    const totalHorasDecimais = diffMilissegundos / 3600000;
-                    valorHoras = totalHorasDecimais * valorPorHora;
-                    minutosTrabalhados = Math.round(diffMilissegundos / 60000);
-                    grandTotalMinutos += minutosTrabalhados;
+                if (diffMilissegundosNoite > 0) {
+                    const totalHorasDecimaisNoite = diffMilissegundosNoite / 3600000;
+                    valorHoras += totalHorasDecimaisNoite * valorPorHora;
+                    minutosTrabalhados += Math.round(diffMilissegundosNoite / 60000);
                 }
             }
             
@@ -79,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             grandTotalHoras += valorHoras;
             grandTotalCustos += valorCustos;
             grandTotalGeral += valorTotalDia;
+            grandTotalMinutos += minutosTrabalhados;
 
             if (valorTotalDia > 0) {
                 htmlResultado += `
@@ -121,8 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
         for (const dia of dias) {
             dadosParaSalvar[dia.id] = {
-                entrada: document.getElementById(`entrada-${dia.id}`).value,
-                saida: document.getElementById(`saida-${dia.id}`).value,
+                entradaManha: document.getElementById(`entrada-manha-${dia.id}`).value,
+                saidaManha: document.getElementById(`saida-manha-${dia.id}`).value,
+                entradaNoite: document.getElementById(`entrada-noite-${dia.id}`).value,
+                saidaNoite: document.getElementById(`saida-noite-${dia.id}`).value,
                 uber: document.getElementById(`uber-${dia.id}`).value,
                 comida: document.getElementById(`comida-${dia.id}`).value,
                 outros: document.getElementById(`outros-${dia.id}`).value
